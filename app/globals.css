@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0A0A0B;
+  --panel: #0E0E11;
+  --panel2: #16161B;
+  --line: rgba(255, 255, 255, .06);
+  --line2: rgba(255, 255, 255, .14);
+  --m1: #8B7CFF; --m2: #4FA3FF; --m3: #2DD4BF; --m4: #F5B451; --m5: #FF7AB6; --m6: #A3E635;
+  --tavily: #5EEAD4;
+  --brand: #8B7CFF;
+  --text: #EDEDED;
+  --dim: #8A8A8F;
+  --neg: #FF5A4E;
+  --pos: #3DDC97;
+  --accent: #E9E9EA;
+  --radius: 10px;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.num { font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 32px; padding: 0 12px; border-radius: 8px;
+  border: 1px solid var(--line); color: var(--text); font-size: 12px;
+  transition: background-color 200ms ease-out, border-color 200ms ease-out, opacity 200ms ease-out;
+}
+.btn:hover { background: var(--panel2); border-color: var(--line2); }
+.btn:disabled { opacity: .4; pointer-events: none; }
+.btn-on { border-color: var(--pos); color: var(--pos); }
+.btn-primary { background: var(--brand); color: #fff; border-color: var(--brand); font-weight: 500; }
+.btn-primary:hover { background: #9d90ff; }
+.card { border-radius: 12px; border: 1px solid var(--line); background: var(--panel2); }
+select.btn option { background: var(--panel); }
+
+.field {
+  background: transparent; border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 8px; font-size: 12px; color: var(--text); outline: none;
+}
+.field:focus { border-color: var(--line2); }
+
+input[type=range] { appearance: none; height: 2px; background: var(--line2); border-radius: 2px; }
+input[type=range]::-webkit-slider-thumb { appearance: none; width: 10px; height: 10px; border-radius: 50%; background: var(--text); cursor: pointer; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
